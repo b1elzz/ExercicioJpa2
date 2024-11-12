@@ -29,7 +29,7 @@ public class Cidade {
     private Calendar data_registro;
 
     @ManyToOne
-    @JoinColumn(name = "SIGLA")
+    @JoinColumn(name = "id_estado")
     private Estado id_estado;
 
     public Cidade(){
@@ -119,7 +119,7 @@ public class Cidade {
 
     @Override
     public String toString() {
-        return "Cidade [id=" + id + ", nome=" + nome + ", data_registro=" + data_registro + ", id_estado=" + id_estado
+        return "Cidade [id=" + id + ", nome=" + nome + ", id_estado=" + id_estado
                 + "]";
     }
 

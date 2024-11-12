@@ -8,6 +8,7 @@ import java.util.List;
 import exercicioestado.Util.TecladoUtil;
 import exercicioestado.model.Cidade;
 import exercicioestado.model.CidadeRepository;
+import exercicioestado.model.CidadeTotalEstado;
 import exercicioestado.model.Estado;
 import exercicioestado.model.EstadoRepository;
 
@@ -33,8 +34,14 @@ public class EstadoController {
        
     }
 
+    
     public List<Estado> listarRegistros() {
         return estadoRepository.listarUfs();
+    }
+
+    public List<CidadeTotalEstado> getCidadeTotalEstados(){
+        List<CidadeTotalEstado> totais = estadoRepository.getTotalCidadeEstado();
+        return totais;
     }
 
     

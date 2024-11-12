@@ -36,8 +36,10 @@ public class CidadeRepository {
     }
 
     public List<Cidade> listarCidades() {
-        TypedQuery<Cidade> buscarTodosQuery = this.em.createQuery("select e from CIDADE e", Cidade.class);
+        TypedQuery<Cidade> buscarTodosQuery = this.em.createQuery("select e from Cidade e", Cidade.class);
         return buscarTodosQuery.getResultList();
     }
+
+    
 
 }

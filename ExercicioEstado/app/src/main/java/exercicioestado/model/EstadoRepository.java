@@ -2,6 +2,8 @@ package exercicioestado.model;
 
 import java.util.List;
 
+import javax.persistence.*;
+import javax.management.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
@@ -42,7 +44,21 @@ public class EstadoRepository {
     }
 
    
+    public List<CidadeTotalEstado> getTotalCidadeEstado() {
+        StringBuffer sb = new StringBuffer(50);
+        sb.append("select new exercicioestado.model.CidadeTotalEstado(e.nome, COUNT(a.id)) ");
+        sb.append("from Cidade a ");
+        sb.append(" inner join a.id_estado e");
+        sb.append("  group by e.nome");
 
+        TypedQuery query = this.em.createQuery(sb.toString(), CidadeTotalEstado.class);
+
+        try {
+            return query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 
    }
 
